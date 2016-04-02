@@ -25,28 +25,32 @@
         <div id="profile">
           <!-- handlebars template -->
           <script id="profile-template" type="text/x-handlebars-template">
-            {{#each profile}}
-          <div class="col-md-8 col-md-offset-2">
             <h1>Christine Lam Profile
               <hr>
-              <img src="{{github_profile_image}}">
             </h1>
-
+            {{#each profile}}
+            <div class="row">
+            <div class="col-md-4 col-md-offset-1">
+                <img src="{{github_profile_image}}">
+            </div>
+          <div class="col-md-4 col-md-offset-2 info">
             <p><strong> Name: </strong> {{first_name}} {{last_name}} <br>
               <strong> Github Link: </strong> <a href="{{github_link}}">{{github_link}}</a> <br>
-              <strong> Github Profile: </strong> See above <br>
+              <strong> Github Profile Image: </strong> See above <br>
               <strong> Current City: </strong> {{current_city}} <br>
 
+              <strong> Stuffed Animals: </strong>
               {{#each stuffed_animals}}
-              Stuffed Animals:
-                <p>Name: {{name}} <br>
-                  Type: {{type}} <br>
-                  Color: {{color}} <br>
+
+                <p><em> Name: </em> {{name}} <br>
+                  <em> Type: </em> {{type}} <br>
+                  <em> Color: </em> {{color}} <br>
                 </p>
               {{/each}}
             </p>
             <h4><a href="/api">Read My API Documentation</a></h4>
           </div>
+        </div>
           {{/each}}
         </script>
         </div>

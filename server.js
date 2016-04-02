@@ -29,12 +29,12 @@ var profile = [
     github_profile_image: "https://avatars2.githubusercontent.com/u/17622935?v=3&s=460",
     current_city: "San Franciso",
     stuffed_animals: [
-      { name: "foo",
-        type: "Cat",
+      { name: "Foo",
+        type: "cat",
         color: "blue"
       },
-      { name: "bar",
-        type: "dog",
+      { name: "Bar",
+        type: "Dog",
         color: "red"
       }
     ]

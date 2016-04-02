@@ -11,10 +11,12 @@ h1 {
 
 p {
   text-align: center;
-  font-size: 18px
+  font-size: 18px;
 }
 
-img {
-  width: 40%;
-  height: auto;
+
+.info{
+ vertical-align: bottom;
+ margin-top:30px;
+ text-align: center
 }
