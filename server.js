@@ -7,11 +7,39 @@ var express = require('express'),
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Orgin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+
+
 /************
  * DATABASE *
  ************/
 
-// var db = require('./models');
+var db = require('./models');
+
+var profile = [
+  { first_name: "Christine",
+    last_name: "Lam",
+    github_link: "https://github.com/lamchristine",
+    github_profile_image: "https://avatars2.githubusercontent.com/u/17622935?v=3&s=460",
+    current_city: "San Franciso",
+    stuffed_animals: [
+      { name: "foo",
+        type: "Cat",
+        color: "blue"
+      },
+      { name: "bar",
+        type: "dog",
+        color: "red"
+      }
+    ]
+  }
+];
 
 /**********
  * ROUTES *
@@ -26,7 +54,7 @@ app.use(express.static('public'));
  */
 
 app.get('/', function homepage(req, res) {
-  res.sendFile(__dirname + '/views/index.html');
+  res.sendFile('views/index.html', {root: __dirname});
 });
 
 
@@ -46,8 +74,13 @@ app.get('/api', function api_index(req, res) {
       {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
       {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"} // CHANGE ME
     ]
-  })
+  });
 });
+
+app.get('/api/profile', function (req, res) {
+  res.json(profile);
+});
+
 
 /**********
  * SERVER *
