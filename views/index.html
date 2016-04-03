@@ -70,36 +70,40 @@
         </div>
 
         <div id="travels">
-
               <div class="row">
-                <div class="col-md-6 col-md-offset-2">
-                <script id="travel-template" type="text/x-handlebars-template">
+                <div id="test">
 
-                    <p>Places I've Visited</p>
+                    <script id="travel-template" type="text/x-handlebars-template">
+                      <div class="col-md-4">
+                  <p>Places I've Visited</p>
                   {{#each travels}}
                   <ul><li>City:{{location_city}} <br>
-                          Country: {{location_country}} <br>
-                          Duration: {{duration}}
+                        Country: {{location_country}} <br>
+                        Duration: {{duration}}
                   </li></ul>
                   {{/each}}
+                  </div>
                   </script>
-                </div>
-                <div class="col-md-6">
-                  <p>Next travel adventures</br>Got suggestion? Lets here em!</p>
-                  <form class = "form-inline" id="newTravelForm">
-                    <div class="form-group">
-                      <label for="title">City</label>
-                      <input type="text" class="form-control" name="city" placeholder="City">
-                    </div>
-                    <div class="form-group">
-                      <label for="title">Country</label>
-                      <input type="text" class="form-control" name="country" placeholder="Country">
-                    </div>
-                    <button type="submit" class="btn btn-default">Add Adventure</button>
-                  </form>
-                </div>
+
               </div>
+
+              <div class="col-md-6">
+                <p>Next travel adventures</br>Got suggestion? Lets here em!</p>
+                <form class = "form-inline" id="travelForm">
+                  <div class="form-group">
+                    <label for="title">City</label>
+                    <input type="text" class="form-control" name="city" placeholder="City">
+                  </div>
+                  <div class="form-group">
+                    <label for="title">Country</label>
+                    <input type="text" class="form-control" name="country" placeholder="Country">
+                  </div>
+                  <button type="submit" class="btn btn-default">Add Adventure</button>
+                </form>
+              </div>
+              </div><!-- row -->
         </div>
+
 
 
 

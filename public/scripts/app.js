@@ -6,7 +6,7 @@ var template1;
 var profile = [];
 var $profile;
 
-var travels = [];
+var allTravels = [];
 var $travels;
 
 var map;
@@ -26,7 +26,7 @@ $(document).ready(function(){
   template = Handlebars.compile(source);
 
 
-  $travels = $('#travels');
+  $travels = $('#test');
   var sourceTravel = $('#travel-template').html();
   template1 = Handlebars.compile(sourceTravel);
 
@@ -46,9 +46,12 @@ $(document).ready(function(){
   });
 
 
-  $('#newTravelForm').on('submit', function(e) {
+  $("#travelForm").on('submit', function(e) {
+
     e.preventDefault();
-    console.log('new travel serialized', $(this).serializeArray());
+    // alert("sadfsadf");
+    console.log( $("input[name = 'city']").val() );
+    console.log( $(this).serializeArray() );
     $.ajax({
       method: 'POST',
       url: '/api/travels',
@@ -67,9 +70,10 @@ function render() {
 
 
 function render1() {
-  $travels.empty();
-  var travelHtml = template1({ travels: travel });
-  $travels.append(travelHtml);
+  $("#test").empty();
+  var travelHtml = template1({ travels: allTravel });
+  $('#test').append(travelHtml);
+  console.log(allTravel);
 }
 
 function onSuccess(json) {
@@ -82,8 +86,8 @@ function onError(e) {
 }
 
 function handleSuccess(json) {
-  travel = json;
-  console.log(travel)
+  allTravel = json;
+  console.log(allTravel)
   render1();
 }
 
@@ -94,8 +98,9 @@ function handleError(json) {
 
 
 function newTravelSuccess(json) {
-  $('#newTravelForm input').val('');
-  travels.push(json);
+  $('#travelForm input').val('');
+  console.log("this is json", json)
+  allTravel.push(json);
   render1();
 }
 

@@ -92,27 +92,27 @@ app.get('/api/travels', function (req, res) {
     if (err) {
       return console.log("error");
     } res.json(travels);
-    console.log(travels)
+    console.log(travels);
   });
 });
 
 
-// app.post('/api/travels', function (req, res) {
-//
-//   var newTravel = new db.Travel({
-//     location_city: req.body.city,
-//     location_country: req.body.country,
-//
-//   }); console.log(newTravel);
-//
-//     newTravel.save(function (err, travel){
-//       if (err) {
-//         return console.log("save err", err);
-//       }
-//       console.log("saved travel", travel);
-//       res.json(travel);
-//     });
-//   });
+app.post('/api/travels', function (req, res) {
+
+  var newTravel = new db.Travel({
+    location_city: req.body.city,
+    location_country: req.body.country,
+
+  }); console.log("new travel", newTravel);
+
+    newTravel.save(function (err, travel){
+      if (err) {
+        return console.log("save err", err);
+      }
+      console.log("saved travel", travel);
+      res.json(travel);
+    });
+  });
 
 /**********
  * SERVER *
