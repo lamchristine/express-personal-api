@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
 var TravelSchema = new Schema({
   location_city: String,
   location_country: String,
-  duration: String, 
+  duration: String,
 });
 
 var Travel = mongoose.model('Travel', TravelSchema);

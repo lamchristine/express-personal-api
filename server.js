@@ -22,24 +22,24 @@ app.use(function(req, res, next) {
 
 var db = require('./models');
 
-var profile = [
-  { first_name: "Christine",
-    last_name: "Lam",
-    github_link: "https://github.com/lamchristine",
-    github_profile_image: "https://avatars2.githubusercontent.com/u/17622935?v=3&s=460",
-    current_city: "San Franciso",
-    stuffed_animals: [
-      { name: "Foo",
-        type: "cat",
-        color: "blue"
-      },
-      { name: "Bar",
-        type: "Dog",
-        color: "red"
-      }
-    ]
-  }
-];
+// var profile = [
+//   { first_name: "Christine",
+//     last_name: "Lam",
+//     github_link: "https://github.com/lamchristine",
+//     github_profile_image: "https://avatars2.githubusercontent.com/u/17622935?v=3&s=460",
+//     current_city: "San Franciso",
+//     stuffed_animals: [
+//       { name: "Foo",
+//         type: "cat",
+//         color: "blue"
+//       },
+//       { name: "Bar",
+//         type: "Dog",
+//         color: "red"
+//       }
+//     ]
+//   }
+// ];
 
 /**********
  * ROUTES *
@@ -79,12 +79,12 @@ app.get('/api', function api_index(req, res) {
 
 app.get('/api/profile', function (req, res) {
   //reference profile in server.js file
-  res.json(profile);
-  // db.Profile.find(function(err, profile) {
-  //   if (err) {
-  //     return console.log("error profile", err);
-  //   } res.json(profile);
-  // });
+  // res.json(profile);
+  db.Profile.find(function(err, profile) {
+    if (err) {
+      return console.log("error profile", err);
+    } res.json(profile);
+  });
 });
 
 app.get('/api/travels', function (req, res) {
@@ -92,9 +92,27 @@ app.get('/api/travels', function (req, res) {
     if (err) {
       return console.log("error");
     } res.json(travels);
+    console.log(travels)
   });
 });
 
+
+// app.post('/api/travels', function (req, res) {
+//
+//   var newTravel = new db.Travel({
+//     location_city: req.body.city,
+//     location_country: req.body.country,
+//
+//   }); console.log(newTravel);
+//
+//     newTravel.save(function (err, travel){
+//       if (err) {
+//         return console.log("save err", err);
+//       }
+//       console.log("saved travel", travel);
+//       res.json(travel);
+//     });
+//   });
 
 /**********
  * SERVER *

@@ -18,29 +18,44 @@ var new_travels = [
   location_city: "Syndey",
   location_country: "Australia",
   duration: "7 days",
+  },
+  {
+  location_city: "Syndey",
+  location_country: "Australia",
+  duration: "7 days",
+  },
+  {
+  location_city: "Syndey",
+  location_country: "Australia",
+  duration: "7 days",
+  },
+  {
+  location_city: "Syndey",
+  location_country: "Australia",
+  duration: "7 days",
   }
 ];
 
 
-// var profile = [
-//   {
-//   first_name: "Christine",
-//   last_name: "Lam",
-//   github_link: "https://github.com/lamchristine",
-//   github_profile_image: "https://avatars2.githubusercontent.com/u/17622935?v=3&s=460",
-//   current_city: "San Franciso",
-//   stuffed_animals: [
-//                     { name: "Foo",
-//                       type: "cat",
-//                       color: "blue"
-//                     },
-//                     { name: "Bar",
-//                       type: "Dog",
-//                       color: "red"
-//                     }
-//                    ]
-//   }
-// ];
+var new_profile = [
+  {
+  first_name: "Christine",
+  last_name: "Lam",
+  github_link: "https://github.com/lamchristine",
+  github_profile_image: "https://avatars2.githubusercontent.com/u/17622935?v=3&s=460",
+  current_city: "San Franciso",
+  stuffed_animals: [
+                    { name: "Foo",
+                      type: "cat",
+                      color: "blue"
+                    },
+                    { name: "Bar",
+                      type: "Dog",
+                      color: "red"
+                    }
+                   ]
+  }
+];
 
 db.Travel.remove({}, function(err, travels){
   if (err) {
@@ -58,6 +73,22 @@ db.Travel.remove({}, function(err, travels){
 }
 });
 
+
+db.Profile.remove({}, function(err, profile){
+  if (err) {
+    console.log('Error occured in remove', err);
+  } else {
+    console.log('removed all travels');
+
+  db.Profile.create(new_profile, function (err, profile) {
+    if (err) {
+      return console.log("Error: ", err);
+    }
+    console.log("Created new profile", profile);
+    process.exit();
+  });
+}
+});
 
 
 // var new_campsite = {description: "Sharp rocks. Middle of nowhere."}

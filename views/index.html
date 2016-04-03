@@ -13,6 +13,8 @@
     <!-- VENDOR SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    <!-- Google Maps API -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0qm0PU9jrSdAIefpSGbDdzWRerHFry5U"></script>
 
     <!-- APPLICATION SCRIPTS -->
     <script src="/scripts/app.js"></script>
@@ -54,22 +56,53 @@
             {{/each}}
           </script>
         </div>
+      </div>
+
+        <div class="row">
+          <h1>Travels!<hr></h1>
+          <div class="col-md-8 col-md-offset-2">
+            <div id="map"><h1>
+
+              insert MAP</h1>
+
+            </div>
+          </div>
+        </div>
 
         <div id="travels">
-          <script id="travel-template" type="text/x-handlebars-template">
-            <h1>travels<hr></h1>
-            {{#each travels}}
+
               <div class="row">
-                <div class="col-md-4 col-md-offset-2">
-                  <p>{{location_city}}</p>
+                <div class="col-md-6 col-md-offset-2">
+                <script id="travel-template" type="text/x-handlebars-template">
+
+                    <p>Places I've Visited</p>
+                  {{#each travels}}
+                  <ul><li>City:{{location_city}} <br>
+                          Country: {{location_country}} <br>
+                          Duration: {{duration}}
+                  </li></ul>
+                  {{/each}}
+                  </script>
+                </div>
+                <div class="col-md-6">
+                  <p>Next travel adventures</br>Got suggestion? Lets here em!</p>
+                  <form class = "form-inline" id="newTravelForm">
+                    <div class="form-group">
+                      <label for="title">City</label>
+                      <input type="text" class="form-control" name="city" placeholder="City">
+                    </div>
+                    <div class="form-group">
+                      <label for="title">Country</label>
+                      <input type="text" class="form-control" name="country" placeholder="Country">
+                    </div>
+                    <button type="submit" class="btn btn-default">Add Adventure</button>
+                  </form>
                 </div>
               </div>
-            {{/each}}
-          </script>
         </div>
 
 
-        </div>
+
       </div>
   </body>
 </html>

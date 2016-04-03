@@ -9,7 +9,17 @@ var $profile;
 var travels = [];
 var $travels;
 
+var map;
+
 $(document).ready(function(){
+
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 37.78, lng: -122.44},
+      zoom: 4
+    });
+  }
+  initMap();
 
   $profile = $('#profile');
   var source = $('#profile-template').html();
@@ -35,6 +45,18 @@ $(document).ready(function(){
     error: handleError,
   });
 
+
+  $('#newTravelForm').on('submit', function(e) {
+    e.preventDefault();
+    console.log('new travel serialized', $(this).serializeArray());
+    $.ajax({
+      method: 'POST',
+      url: '/api/travels',
+      data: $(this).serializeArray(),
+      success: newTravelSuccess,
+      error: newTravelError
+    });
+  });
 });
 
 function render() {
@@ -61,10 +83,22 @@ function onError(e) {
 
 function handleSuccess(json) {
   travel = json;
+  console.log(travel)
   render1();
 }
 
 
 function handleError(json) {
+  console.log("Travels Failed");
+}
+
+
+function newTravelSuccess(json) {
+  $('#newTravelForm input').val('');
+  travels.push(json);
+  render1();
+}
+
+function newTravelError(json) {
   console.log("Travels Failed");
 }
