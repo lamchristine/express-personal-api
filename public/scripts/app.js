@@ -87,7 +87,7 @@ function onError(e) {
 
 function handleSuccess(json) {
   allTravel = json;
-  console.log(allTravel)
+  console.log(allTravel);
   render1();
 }
 

@@ -20,18 +20,18 @@ var new_travels = [
   duration: "7 days",
   },
   {
-  location_city: "Syndey",
+  location_city: "Melbourne",
   location_country: "Australia",
   duration: "7 days",
   },
   {
-  location_city: "Syndey",
-  location_country: "Australia",
+  location_city: "Hong Kong",
+  location_country: "Hong Kong",
   duration: "7 days",
   },
   {
-  location_city: "Syndey",
-  location_country: "Australia",
+  location_city: "Siem Reap",
+  location_country: "Cambodia",
   duration: "7 days",
   }
 ];
@@ -59,7 +59,7 @@ var new_profile = [
 
 db.Travel.remove({}, function(err, travels){
   if (err) {
-    console.log('Error occured in remove', err);
+    console.log('Error occured in removing travels', err);
   } else {
     console.log('removed all travels');
 
@@ -70,7 +70,7 @@ db.Travel.remove({}, function(err, travels){
     console.log("Created new travel", travels);
     process.exit();
   });
-}
+  }
 });
 
 
@@ -78,7 +78,7 @@ db.Profile.remove({}, function(err, profile){
   if (err) {
     console.log('Error occured in remove', err);
   } else {
-    console.log('removed all travels');
+    console.log('removed all profile');
 
   db.Profile.create(new_profile, function (err, profile) {
     if (err) {
