@@ -30,33 +30,46 @@
             </h1>
             {{#each profile}}
             <div class="row">
-            <div class="col-md-4 col-md-offset-1">
-                <img src="{{github_profile_image}}">
-            </div>
-          <div class="col-md-4 col-md-offset-2 info">
-            <p><strong> Name: </strong> {{first_name}} {{last_name}} <br>
-              <strong> Github Link: </strong> <a href="{{github_link}}">{{github_link}}</a> <br>
-              <strong> Github Profile Image: </strong> See above <br>
-              <strong> Current City: </strong> {{current_city}} <br>
+              <div class="col-md-4 col-md-offset-1">
+                  <img src="{{github_profile_image}}">
+              </div>
+              <div class="col-md-4 col-md-offset-2 info">
+                <p><strong> Name: </strong> {{first_name}} {{last_name}} <br>
+                  <strong> Github Link: </strong> <a href="{{github_link}}">{{github_link}}</a> <br>
+                  <strong> Github Profile Image: </strong> See above <br>
+                  <strong> Current City: </strong> {{current_city}} <br>
 
-              <strong> Stuffed Animals: </strong>
-              {{#each stuffed_animals}}
+                  <strong> Stuffed Animals: </strong>
+                    {{#each stuffed_animals}}
+                      <p><em> Name: </em> {{name}} <br>
+                        <em> Type: </em> {{type}} <br>
+                        <em> Color: </em> {{color}} <br>
+                      </p>
+                    {{/each}}
 
-                <p><em> Name: </em> {{name}} <br>
-                  <em> Type: </em> {{type}} <br>
-                  <em> Color: </em> {{color}} <br>
+                  <h4><a href="/api">Read My API Documentation</a></h4>
                 </p>
-              {{/each}}
-            </p>
-            <h4><a href="/api">Read My API Documentation</a></h4>
-          </div>
+              </div>
+            </div>
+            {{/each}}
+          </script>
         </div>
-          {{/each}}
-        </script>
+
+        <div id="travels">
+          <script id="travel-template" type="text/x-handlebars-template">
+            <h1>travels<hr></h1>
+            {{#each travels}}
+              <div class="row">
+                <div class="col-md-4 col-md-offset-2">
+                  <p>{{location_city}}</p>
+                </div>
+              </div>
+            {{/each}}
+          </script>
         </div>
 
 
+        </div>
       </div>
-    </div>
   </body>
 </html>

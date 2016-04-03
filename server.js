@@ -78,7 +78,21 @@ app.get('/api', function api_index(req, res) {
 });
 
 app.get('/api/profile', function (req, res) {
+  //reference profile in server.js file
   res.json(profile);
+  // db.Profile.find(function(err, profile) {
+  //   if (err) {
+  //     return console.log("error profile", err);
+  //   } res.json(profile);
+  // });
+});
+
+app.get('/api/travels', function (req, res) {
+  db.Travel.find(function(err, travels) {
+    if (err) {
+      return console.log("error");
+    } res.json(travels);
+  });
 });
 
 
