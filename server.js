@@ -135,7 +135,51 @@ app.post('/api/travels', function (req, res) {
     });
   });
 
-  
+// edit travels
+
+// app.get ('/api/travels/:id', function (req, res) {
+//   var editId = req.params._id;
+//   console.log(editId);
+// });
+
+  app.put('/api/travels/:id', function (req, res) {
+    // var editId = req.params._id;
+    // console.log(editId);
+    db.Travel.findOne({_id: req.params.id}, function (err, travel) {
+      if (err) {
+        console.log('edit failed horribly', err);
+      }
+      travel.location_city = req.body.city;
+      travel.location_country = req.body.country;
+      travel.duration = req.body.duration;
+      travel.main_activities = req.body.main_activities;
+
+      travel.save(function(err) {
+        if (err) {
+          console.log('saving failed');
+        }
+        res.json(travel);
+        console.log(travel);
+      });
+    });
+  });
+    // var query = {"_id": req.params._id };
+    // console.log(query);
+    // var update = {location_city: req.body.city,
+    //               location_country: req.body.country,
+    //               duration: req.body.duration,
+    //               main_activities: req.body.main_activities
+    //               };
+    // var options = {new: true};
+    //
+    // db.Travel.findOneAndUpdate(query, update, option, function (err, editTravel) {
+    //   if (err) {
+    //     console.log('edit fail');
+    //   }
+    //   res.json(editTravel);
+    //   console.log('edited travel', editTravel)
+    // });
+
 
 /**********
  * SERVER *

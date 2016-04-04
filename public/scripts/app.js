@@ -71,6 +71,29 @@ $(document).ready(function(){
     });
   });
 
+  $travels.on('click', '.editAd', function () {
+    $('#editTravelForm').show();
+    var id = $(this).attr('data-id');
+    console.log("travel id", id);
+
+
+    $("#editTravelForm").on('submit', function (e) {
+      e.preventDefault();
+      console.log( $("input[name = 'city']").val() );
+      console.log('edit info', $(this).serializeArray() );
+      console.log('edit info /api/travels/' + id );
+
+        $.ajax({
+          method: 'PUT',
+          url: '/api/travels/' + id,
+          data:  $(this).serializeArray(),
+          success: editAdSuccess,
+          error: editAdError
+        });
+    });
+  });
+
+
 
 
 });
@@ -136,4 +159,21 @@ function deleteAdSuccess(json) {
 
 function deleteAdError(json){
   console.log("delete failed");
+}
+
+function editAdSuccess(json){
+  var travel = json;
+  var travelId = travel._id;
+  console.log('edit travel', travelId);
+  for (var i=0; i <allTravels.length; i++){
+    if (allTravels[i]._id === travelId) {
+      allTravels[i] = travel;
+      break;
+    }
+  }
+  render1();
+  }
+
+function editAdError(json) {
+  console.log('edit form failed');
 }

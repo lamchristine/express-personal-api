@@ -225,3 +225,20 @@ button:hover{
   border-bottom: 3px solid #5c8a8a;
   color: white;
 }
+
+#editTravelForm{
+   /*margin:25px auto;*/
+   /*font-family: "p22-underground",sans-serif;*/
+   font-style: normal;
+   font-weight: 500;
+   font-size:13pt;
+   /*line-height:1.1;*/
+   display:none;
+   position: fixed;
+   z-index: 100;
+   height: 200px;
+   weight: 200px;
+   top:50%;
+   left:50%
+   margin: -100px 0 0 -100px;
+}
