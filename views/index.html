@@ -9,6 +9,8 @@
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="/styles/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
 
     <!-- VENDOR SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
@@ -20,28 +22,39 @@
     <script src="/scripts/app.js"></script>
   </head>
   <body>
-    <div class="container">
-      <div class="row">
 
+    <header id="top">
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#photos">Photos</a></li>
+        <li><span class="contact_button"><a href="#contact">CONTACT</a></span></li>
+      </ul>
+      <div class="transbox">
+          <p>Christine Lam</p>
+          <h2>Welcome to my site!</h2>
+      </div>
+    </header>
+
+
+      <div class="row">
+        <p class="section_title">About Me</p>
 
         <div id="profile">
           <!-- handlebars template -->
           <script id="profile-template" type="text/x-handlebars-template">
-            <h1>Christine Lam Profile
-              <hr>
-            </h1>
+
             {{#each profile}}
             <div class="row">
-              <div class="col-md-4 col-md-offset-1">
-                  <img src="{{github_profile_image}}">
+              <div class="col-md-4 col-md-offset-2">
+                  <img src="{{github_profile_image}}" class='img-circle profile-image'>
               </div>
-              <div class="col-md-4 col-md-offset-2 info">
-                <p><strong> Name: </strong> {{first_name}} {{last_name}} <br>
-                  <strong> Github Link: </strong> <a href="{{github_link}}">{{github_link}}</a> <br>
-                  <strong> Github Profile Image: </strong> See above <br>
-                  <strong> Current City: </strong> {{current_city}} <br>
+              <div class="col-md-3 col-md-offset-1 info">
+                <p><span class="keys"> Name: </span> {{first_name}} {{last_name}} <br>
+                  <span class="keys"> Github Link: </span> <a href="{{github_link}}"> {{github_link}}</a> <br>
+                  <span class="keys"> Github Profile Image: </span> See beside <br>
+                  <span class="keys"> Current City: </span> {{current_city}} <br>
 
-                  <strong> Stuffed Animals: </strong>
+                  <span class="keys"> Favorite Stuffed Animals: </span>
                     {{#each stuffed_animals}}
                       <p><em> Name: </em> {{name}} <br>
                         <em> Type: </em> {{type}} <br>
@@ -57,10 +70,13 @@
           </script>
         </div>
       </div>
+      <hr>
 
+      <div class="travel_section">
         <div class="row">
-          <h1>Travels!<hr></h1>
-          <div class="col-md-8 col-md-offset-2">
+          <p class="section_title">Travel Adventures</p>
+          <p id="quote"> "We travel not to escape life, but for life not to escape us.” - <em>Anonymous</em> </p>
+          <div class="col-md-8 col-md-offset-2 upcoming">
             <div id="map"><h1>
 
               insert MAP</h1>
@@ -74,21 +90,28 @@
                 <div id="test">
 
                     <script id="travel-template" type="text/x-handlebars-template">
-                      <div class="col-md-4">
-                  <p>Places I've Visited</p>
+                      <div class="col-md-8 col-md-offset-2 upcoming">
+                  <p class="sub_paragraph">Check out my upcoming travel adventures!</p>
                   {{#each travels}}
-                  <ul><li>City:{{location_city}} <br>
-                        Country: {{location_country}} <br>
-                        Duration: {{duration}}
-                  </li></ul>
+                  <ul class="travels"><li><p>
+                        <span class="keys">City: </span> {{location_city}} <br>
+                        <span class="keys">Country:</span> {{location_country}} <br>
+                        <span class="keys">Duration: </span> {{duration}} <br>
+                        <span class="keys"> Main Activities: </span> {{main_activities}}
+                  </p></li></ul>
+
                   {{/each}}
                   </div>
                   </script>
 
               </div>
+            </div> <!--row -->
+          </div>
 
-              <div class="col-md-6">
-                <p>Next travel adventures</br>Got suggestion? Lets here em!</p>
+            <hr class='last'>
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1 upcoming">
+                <p class="upcoming">Got travel suggestion? Lets here em!</p>
                 <form class = "form-inline" id="travelForm">
                   <div class="form-group">
                     <label for="title">City</label>
@@ -99,18 +122,30 @@
                     <input type="text" class="form-control" name="country" placeholder="Country">
                   </div>
                   <div class="form-group">
-                    <label for="title">Comment</label>
-                    <textarea class="form-control" rows='3'name="comment" placeholder="Comment"></textarea>
+                    <label for="title">Duration</label>
+                    <input type="text" class="form-control" name="duration" placeholder="Duration">
                   </div>
+                  <div class="form-group">
+                    <label for="title">Main_Activities</label>
+                    <input type="text" class="form-control" name="main_activities" placeholder="Main Activities">
+                  </div>
+                  <!-- <div class="form-group">
+                    <label for="title">Main_Activities</label>
+                    <textarea class="form-control" rows='3'name="comment" placeholder="Comment"></textarea>
+                  </div> -->
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2 upcoming">
                   <button type="submit" class="btn btn-default">Add Adventure</button>
+                </div>
+              </div>
                 </form>
               </div>
-              </div><!-- row -->
-        </div>
+            </div><!-- row -->
 
 
 
 
-      </div>
+
+
   </body>
 </html>

@@ -5,34 +5,22 @@ var db = require('./models');
 
 var new_travels = [
   {
-  location_city: "Munich",
-  location_country: "Germany",
-  duration: "2 days",
+  location_city: "Reykjavik",
+  location_country: "Iceland",
+  duration: "A week",
+  main_activities: "Camping & hiking, seeing the Northern Lights"
   },
   {
-  location_city: "Toronto",
-  location_country: "Canada",
-  duration: "4 days",
+  location_city: "Tanzania",
+  location_country: "Africa",
+  duration: "2 weeks",
+  main_activities: "Climing Mt.Kili and exploring the Serengeti"
   },
   {
-  location_city: "Syndey",
-  location_country: "Australia",
-  duration: "7 days",
-  },
-  {
-  location_city: "Melbourne",
-  location_country: "Australia",
-  duration: "7 days",
-  },
-  {
-  location_city: "Hong Kong",
-  location_country: "Hong Kong",
-  duration: "7 days",
-  },
-  {
-  location_city: "Siem Reap",
-  location_country: "Cambodia",
-  duration: "7 days",
+  location_city: "South Shetland Islands",
+  location_country: "Antarctica",
+  duration: "2 weeks",
+  main_activities: "King pengiuns and hot springs, and taking the polar plunge!"
   }
 ];
 
@@ -45,13 +33,13 @@ var new_profile = [
   github_profile_image: "https://avatars2.githubusercontent.com/u/17622935?v=3&s=460",
   current_city: "San Franciso",
   stuffed_animals: [
-                    { name: "Foo",
-                      type: "cat",
-                      color: "blue"
+                    { name: "Bear Bear",
+                      type: "Bear",
+                      color: "White"
                     },
-                    { name: "Bar",
-                      type: "Dog",
-                      color: "red"
+                    { name: "George",
+                      type: "Money",
+                      color: "Brown"
                     }
                    ]
   }

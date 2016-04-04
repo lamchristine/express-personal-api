@@ -102,6 +102,8 @@ app.post('/api/travels', function (req, res) {
   var newTravel = new db.Travel({
     location_city: req.body.city,
     location_country: req.body.country,
+    duration:req.body.duration,
+    main_activities: req.body.main_activities
 
   }); console.log("new travel", newTravel);
 

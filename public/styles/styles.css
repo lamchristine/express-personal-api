@@ -1,7 +1,93 @@
-body {
-  color: #333;
-  font-family: Helvetica, Arial, sans-serif;
-  background-color: skyblue; /* Sanity Check! */
+body{
+  font-family: 'PT Sans Narrow', sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  color: #595959;
+}
+
+/*---HEADER---*/
+
+header {
+  background: url('/images/background.jpg');
+  background-size: cover;
+  background-position:center;
+  height: 550px;
+  margin-bottom: 30px;
+}
+
+
+.transbox {
+  margin: 250px 400px 0 400px;
+  /*padding: 5px;*/
+  background-color: #ffffff;
+  opacity: 0.6;
+  vertical-align: middle;
+  /*z-index: 0;*/
+  /*position: relative;*/
+}
+
+
+.transbox p{
+  color: black;
+  font-size: 50px;
+  /*margin:50px 0 0 0;*/
+  font-family: 'Slabo 27px';
+  vertical-align: middle;
+}
+
+h2 {
+  position: relative;
+  font-size: 40px;
+  margin-top: -20px;
+  color: black;
+  padding-bottom: 10px;
+}
+
+ul{
+  text-align: right;
+  margin: 0;
+  padding-top: 30px;
+  padding-right: 20px;
+  /*display: none;*/
+}
+
+
+li{
+  display: inline;
+  font-size: 20px;
+  padding: 0 15px 0 15px;
+}
+
+li:hover{
+  color: black;
+  font-weight: 900;
+}
+.contact_button{
+  border-style:solid;
+  border-width: 2px;
+  padding:8px;
+}
+.contact_button:hover{
+  background-color: #595959;
+  color:white;
+}
+
+
+/*---BODY GENERAL---*/
+.section_title{
+  font-size: 45px;
+  /*margin-top: 50px;*/
+  padding:0;
+  font-family: 'Slabo 27px';
+  color:  #4dffdb;
+  /*background: #F8F8F8;*/
+}
+
+.profile-image{
+  height: 325px;
+  weight: 325px;
+  margin-top: 55px;
 }
 
 h1 {
@@ -11,9 +97,42 @@ h1 {
 
 p {
   text-align: center;
-  font-size: 18px;
+  font-size: 20px;
+  /*color: blue;*/
 }
 
+hr{
+   width: 200px;
+   height: 2px;
+   border:0;
+   border-top: 2px solid #595959;
+   margin: 40px auto;
+   margin-bottom: 20px;
+}
+.travel_section{
+  background:#F8F8F8;
+  margin-top: 50px;
+  padding-top: 20px;
+}
+
+
+.keys{
+  color: red;
+}
+
+ul.travels {
+  /*color: blue;*/
+  text-align: center;
+  margin-bottom:-60px;
+}
+
+.upcoming{
+  margin-top: 20px;
+}
+
+.sub_paragraph{
+  margin-bottom: -30px;
+}
 
 .info{
  vertical-align: bottom;
@@ -23,4 +142,10 @@ p {
 
 #map {
   height: 400px;
+  margin-bottom: 10px;
+}
+
+hr.last{
+  margin-top:60px;
+  margin-bottom: -10px;
 }
