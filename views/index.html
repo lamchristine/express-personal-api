@@ -25,9 +25,9 @@
 
     <header id="top">
       <ul>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#photos">Photos</a></li>
-        <li><span class="contact_button"><a href="#contact">CONTACT</a></span></li>
+        <li class='nava'><a href="#about">About Me</a></li>
+        <li class='nava'><a href="#adventure">Travels</a></li>
+        <!-- <li><span class="contact_button"><a href="#contact">CONTACT</a></span></li> -->
       </ul>
       <div class="transbox">
           <p>Christine Lam</p>
@@ -36,7 +36,7 @@
     </header>
 
 
-      <div class="row">
+      <div id="about" class="row">
         <p class="section_title">About Me</p>
 
         <div id="profile">
@@ -56,9 +56,9 @@
 
                   <span class="keys"> Favorite Stuffed Animals: </span>
                     {{#each stuffed_animals}}
-                      <p><em> Name: </em> {{name}} <br>
-                        <em> Type: </em> {{type}} <br>
-                        <em> Color: </em> {{color}} <br>
+                      <p><em><span class="keys"> Name: </em> {{name}} <br>
+                        <em> <span class="keys">Type: </span> </em> {{type}} <br>
+                        <em><span class="keys"> Color: </span> </em> {{color}} <br>
                       </p>
                     {{/each}}
 
@@ -70,9 +70,9 @@
           </script>
         </div>
       </div>
-      <hr>
+      <hr class="short">
 
-      <div class="travel_section">
+      <div id="adventure" class="travel_section">
         <div class="row">
           <p class="section_title">Travel Adventures</p>
           <p id="quote"> "We travel not to escape life, but for life not to escape us.” - <em>Anonymous</em> </p>
@@ -90,8 +90,9 @@
                 <div id="test">
 
                     <script id="travel-template" type="text/x-handlebars-template">
-                      <div class="col-md-8 col-md-offset-2 upcoming">
-                  <p class="sub_paragraph">Check out my upcoming travel adventures!</p>
+                      <p class="sub_paragraph">Check out my upcoming travel adventures!</p>
+                      <div class="col-md-10 upcoming">
+
                   {{#each travels}}
                   <ul class="travels"><li><p>
                         <span class="keys">City: </span> {{location_city}} <br>
@@ -100,6 +101,8 @@
                         <span class="keys"> Main Activities: </span> {{main_activities}}
                   </p></li></ul>
                   <button type="button" name="button" class="deleteBtn btn btn-danger pull-right deleteAd" data-id={{_id}}>Delete Adventure</button>
+                  <button type="button" name="button" class="deleteBtn btn btn-danger pull-right editAd" data-id={{_id}}>Edit Adventure</button>
+                  <hr class="subline">
                   {{/each}}
                   </div>
                   </script>
@@ -107,11 +110,11 @@
               </div>
             </div> <!--row -->
           </div>
-
-            <hr class='last'>
+<!--
+            <hr class='last'> -->
             <div class="row">
               <div class="col-md-10 col-md-offset-1 upcoming">
-                <p class="upcoming">Got travel suggestion? Lets here em!</p>
+                <p class="upcoming">Got travel suggestions? Lets here em!</p>
                 <form class = "form-inline" id="travelForm">
                   <div class="form-group">
                     <label for="title">City</label>
@@ -126,7 +129,7 @@
                     <input type="text" class="form-control" name="duration" placeholder="Duration">
                   </div>
                   <div class="form-group">
-                    <label for="title">Main_Activities</label>
+                    <label for="title">Main Activities</label>
                     <input type="text" class="form-control" name="main_activities" placeholder="Main Activities">
                   </div>
                   <!-- <div class="form-group">
@@ -142,6 +145,13 @@
               </div>
             </div><!-- row -->
 
+            <div class="bottom">
+              <ul class="footer">
+                  <li class="footer_line"><a href="#about">About Me</a></li>
+                  <li class="footer_line"><a href="#adventure">Travels</a></li>
+              </ul>
+              <p style="color:#737373;padding-top: 5px;">CHRISTINE LAM | christine.lam.06@gmail.com</p>
+            </div>
 
 
 

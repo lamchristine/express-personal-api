@@ -38,7 +38,7 @@ var new_profile = [
                       color: "White"
                     },
                     { name: "George",
-                      type: "Money",
+                      type: "Monkey",
                       color: "Brown"
                     }
                    ]
