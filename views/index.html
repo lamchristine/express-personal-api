@@ -87,10 +87,16 @@
 
         <div id="travels">
               <div class="row">
-                <div id="test">
 
-                    <script id="travel-template" type="text/x-handlebars-template">
+
+
                       <p class="sub_paragraph">Check out my upcoming travel adventures!</p>
+                      <div id="index" class='row'>
+                      <button type="button" name="button" class="deleteBtn btn btn-danger index" data-id={{_id}}>Show All Adventures</button>
+                      </div>
+
+                    <div id="test">
+                    <script id="travel-template" type="text/x-handlebars-template">
                       <div class="col-md-10 upcoming">
 
                   {{#each travels}}

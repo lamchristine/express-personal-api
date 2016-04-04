@@ -29,13 +29,13 @@ var profile = [
     github_profile_image: "https://avatars2.githubusercontent.com/u/17622935?v=3&s=460",
     current_city: "San Franciso",
     stuffed_animals: [
-      { name: "Foo",
-        type: "cat",
-        color: "blue"
+      { name: "Bear Bear",
+        type: "Bear",
+        color: "White"
       },
-      { name: "Bar",
-        type: "Dog",
-        color: "red"
+      { name: "George",
+        type: "Monkey",
+        color: "Brown"
       }
     ]
   }
@@ -82,12 +82,12 @@ app.get('/api', function api_index(req, res) {
 //get profile
 app.get('/api/profile', function (req, res) {
   //reference profile in server.js file
-  // res.json(profile);
-  db.Profile.find(function(err, profile) {
-    if (err) {
-      return console.log("error profile", err);
-    } res.json(profile);
-  });
+  res.json(profile);
+  // db.Profile.find(function(err, profile) {
+  //   if (err) {
+  //     return console.log("error profile", err);
+  //   } res.json(profile);
+  // });
 });
 
 //get all travels

@@ -38,12 +38,14 @@ $(document).ready(function(){
     error: onError
   });
 
+$("#index").on('click', function () {
   $.ajax({
     method: 'GET',
     url: '/api/travels',
     success: handleSuccess,
     error: handleError,
   });
+});
 
 
   $("#travelForm").on('submit', function(e) {
