@@ -67,7 +67,7 @@ app.get('/api', function api_index(req, res) {
   res.json({
     all_endpoints_documented: true,
     message: "Welcome to my personal api! Here's what you need to know!",
-    documentation_url: "https://github.com/example-username/express_self_api/README.md", // CHANGE ME
+    documentation_url: "https://github.com/lamchristine/express-personal-api/README.md", // CHANGE ME
     base_url: "https://cherry-cake-30134.herokuapp.com/", // CHANGE ME
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
