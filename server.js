@@ -78,6 +78,7 @@ app.get('/api', function api_index(req, res) {
   });
 });
 
+//get profile
 app.get('/api/profile', function (req, res) {
   //reference profile in server.js file
   // res.json(profile);
@@ -88,6 +89,7 @@ app.get('/api/profile', function (req, res) {
   });
 });
 
+//get all travels
 app.get('/api/travels', function (req, res) {
   db.Travel.find(function(err, travels) {
     if (err) {
@@ -98,6 +100,7 @@ app.get('/api/travels', function (req, res) {
 });
 
 
+//create new travel
 app.post('/api/travels', function (req, res) {
 
   var newTravel = new db.Travel({
@@ -118,6 +121,7 @@ app.post('/api/travels', function (req, res) {
   });
 
 
+//delete travel
   app.delete('/api/travels/:id', function (req, res) {
     console.log('ad deleted', req.params);
     var adId = req.params.id;
@@ -136,15 +140,7 @@ app.post('/api/travels', function (req, res) {
   });
 
 // edit travels
-
-// app.get ('/api/travels/:id', function (req, res) {
-//   var editId = req.params._id;
-//   console.log(editId);
-// });
-
   app.put('/api/travels/:id', function (req, res) {
-    // var editId = req.params._id;
-    // console.log(editId);
     db.Travel.findOne({_id: req.params.id}, function (err, travel) {
       if (err) {
         console.log('edit failed horribly', err);
@@ -163,22 +159,7 @@ app.post('/api/travels', function (req, res) {
       });
     });
   });
-    // var query = {"_id": req.params._id };
-    // console.log(query);
-    // var update = {location_city: req.body.city,
-    //               location_country: req.body.country,
-    //               duration: req.body.duration,
-    //               main_activities: req.body.main_activities
-    //               };
-    // var options = {new: true};
-    //
-    // db.Travel.findOneAndUpdate(query, update, option, function (err, editTravel) {
-    //   if (err) {
-    //     console.log('edit fail');
-    //   }
-    //   res.json(editTravel);
-    //   console.log('edited travel', editTravel)
-    // });
+
 
 
 /**********

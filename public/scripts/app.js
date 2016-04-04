@@ -72,12 +72,15 @@ $(document).ready(function(){
   });
 
   $travels.on('click', '.editAd', function () {
+    $('#editTravelForm input').val('');
     $('#editTravelForm').show();
     var id = $(this).attr('data-id');
     console.log("travel id", id);
 
 
     $("#editTravelForm").on('submit', function (e) {
+
+      $('#editTravelForm').hide();
       e.preventDefault();
       console.log( $("input[name = 'city']").val() );
       console.log('edit info', $(this).serializeArray() );
@@ -90,6 +93,7 @@ $(document).ready(function(){
           success: editAdSuccess,
           error: editAdError
         });
+
     });
   });
 
