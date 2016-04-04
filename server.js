@@ -72,6 +72,7 @@ app.get('/api', function api_index(req, res) {
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
       {method: "GET", path: "/api/profile", description: "Data about me"},
+      {method: "GET", path: "/api/travels", description: "Shows all travels"},
       {method: "POST", path: "/api/travels", description: "Create a new travel adventure"},
       {method: "DELETE", path: "/api/travels", description: "Deletes a specific travel adventure"},
       {method: "PUT", path: "/api/travels/:id", description: "Updates a specific travel adventure"}
