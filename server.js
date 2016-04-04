@@ -22,24 +22,24 @@ app.use(function(req, res, next) {
 
 var db = require('./models');
 
-// var profile = [
-//   { first_name: "Christine",
-//     last_name: "Lam",
-//     github_link: "https://github.com/lamchristine",
-//     github_profile_image: "https://avatars2.githubusercontent.com/u/17622935?v=3&s=460",
-//     current_city: "San Franciso",
-//     stuffed_animals: [
-//       { name: "Foo",
-//         type: "cat",
-//         color: "blue"
-//       },
-//       { name: "Bar",
-//         type: "Dog",
-//         color: "red"
-//       }
-//     ]
-//   }
-// ];
+var profile = [
+  { first_name: "Christine",
+    last_name: "Lam",
+    github_link: "https://github.com/lamchristine",
+    github_profile_image: "https://avatars2.githubusercontent.com/u/17622935?v=3&s=460",
+    current_city: "San Franciso",
+    stuffed_animals: [
+      { name: "Foo",
+        type: "cat",
+        color: "blue"
+      },
+      { name: "Bar",
+        type: "Dog",
+        color: "red"
+      }
+    ]
+  }
+];
 
 /**********
  * ROUTES *
@@ -68,12 +68,13 @@ app.get('/api', function api_index(req, res) {
     all_endpoints_documented: true,
     message: "Welcome to my personal api! Here's what you need to know!",
     documentation_url: "https://github.com/example-username/express_self_api/README.md", // CHANGE ME
-    base_url: "http://YOUR-APP-NAME.herokuapp.com", // CHANGE ME
+    base_url: "https://cherry-cake-30134.herokuapp.com/", // CHANGE ME
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
       {method: "GET", path: "/api/profile", description: "Data about me"},
       {method: "POST", path: "/api/travels", description: "Create a new travel adventure"},
-      {method: "DELETE", path: "/api/travels", description: "Deletes a specific travel adventure"}
+      {method: "DELETE", path: "/api/travels", description: "Deletes a specific travel adventure"},
+      {method: "PUT", path: "/api/travels/:id", description: "Updates a specific travel adventure"}
     ]
   });
 });
