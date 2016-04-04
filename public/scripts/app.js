@@ -60,6 +60,19 @@ $(document).ready(function(){
       error: newTravelError
     });
   });
+
+  $travels.on('click', '.deleteAd', function () {
+    console.log('clicked delete adventure button to', '/api/travels/'+ $(this).attr('data-id') );
+    $.ajax({
+      method: 'DELETE',
+      url: '/api/travels/' + $(this).attr('data-id'),
+      success: deleteAdSuccess,
+      error: deleteAdError,
+    });
+  });
+
+
+
 });
 
 function render() {
@@ -71,9 +84,9 @@ function render() {
 
 function render1() {
   $("#test").empty();
-  var travelHtml = template1({ travels: allTravel });
+  var travelHtml = template1({ travels: allTravels });
   $('#test').append(travelHtml);
-  console.log(allTravel);
+  console.log(allTravels);
 }
 
 function onSuccess(json) {
@@ -86,8 +99,8 @@ function onError(e) {
 }
 
 function handleSuccess(json) {
-  allTravel = json;
-  console.log(allTravel);
+  allTravels = json;
+  console.log(allTravels);
   render1();
 }
 
@@ -99,11 +112,28 @@ function handleError(json) {
 
 function newTravelSuccess(json) {
   $('#travelForm input').val('');
-  console.log("this is json", json)
-  allTravel.push(json);
+  console.log("this is json", json);
+  allTravels.push(json);
   render1();
 }
 
 function newTravelError(json) {
   console.log("Travels Failed");
+}
+
+function deleteAdSuccess(json) {
+  var travel = json;
+  var travelId = travel._id;
+  console.log('deleted travel', travelId);
+  for (var i=0; i <allTravels.length; i++){
+    if (allTravels[i]._id === travelId) {
+      allTravels.splice(i, 1);
+      break;
+    }
+  }
+  render1();
+}
+
+function deleteAdError(json){
+  console.log("delete failed");
 }

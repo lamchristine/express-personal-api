@@ -116,6 +116,16 @@ app.post('/api/travels', function (req, res) {
     });
   });
 
+
+  app.delete('/api/travels/:id', function (req, res) {
+    console.log('ad deleted', req.params);
+    var adId = req.params.id;
+
+    db.Travel.findOneAndRemove({ _id:adId }, function (err, deletedAd) {
+      res.json(deletedAd);
+    });
+  });
+
 /**********
  * SERVER *
  **********/
